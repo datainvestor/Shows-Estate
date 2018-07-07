@@ -12,7 +12,7 @@ router.get("/", function(req, res){
         if(err){
             console.log(err)
         } else{
-            res.render("places/index",{places: allPlaces})
+            res.render("places/index",{places: allPlaces, page: 'places'})
         }
         
     })
@@ -20,7 +20,7 @@ router.get("/", function(req, res){
 
 
 //CREATE - add new campground to DB
-router.post("/", middleware.isLoggedIn, function(req, res){
+router.post("/", middleware.isLoggedIn, middleware.isSafe, function(req, res){
     // get data from form and add to campgrounds array
     var name = req.body.name;
     var price= req.body.price;
@@ -90,7 +90,7 @@ router.get("/:id/edit", middleware.checkPlaceOwnership, function(req, res) {
 });
 
 // UPDATE CAMPGROUND ROUTE
-router.put("/:id", middleware.checkPlaceOwnership, function(req, res){
+router.put("/:id", middleware.checkPlaceOwnership, middleware.isSafe, function(req, res){
     // find and update the correct campground
     Place.findByIdAndUpdate(req.params.id,  req.body.place, function(err, updatedPlace){
         if(err){
