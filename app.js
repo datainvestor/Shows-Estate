@@ -17,6 +17,7 @@ var commentRoutes     = require("./routes/comments"),
     ratingRoutes     = require("./routes/ratings"),
     authRoutes        = require("./routes/index")
      
+require('dotenv').config()
     
 // seedDB()
 mongoose.connect("mongodb://localhost/show_estates_v2")
@@ -31,7 +32,7 @@ app.locals.moment = require('moment');
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
-    secret:" POKEMON GOTTA CATCH EM ALL",
+    secret:process.env.SECRET_KEY,
     resave:false,
     saveUninitialized: false
 }))
