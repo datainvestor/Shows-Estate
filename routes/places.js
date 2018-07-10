@@ -84,6 +84,7 @@ router.get("/:id/edit", middleware.checkPlaceOwnership, function(req, res) {
             req.flash("error", "Place not found")
             res.redirect("/places")
         } else{
+            
              res.render("places/edit", {place: foundPlace})
         }
     });
@@ -91,6 +92,7 @@ router.get("/:id/edit", middleware.checkPlaceOwnership, function(req, res) {
 
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id", middleware.checkPlaceOwnership, middleware.isSafe, function(req, res){
+    console.log(req.body.image)
     // find and update the correct campground
     Place.findByIdAndUpdate(req.params.id,  req.body.place, function(err, updatedPlace){
         if(err){
