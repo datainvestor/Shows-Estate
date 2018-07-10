@@ -4,5 +4,7 @@ This is a repository for website "Shows' Estates", which works like Yelp but for
 
 ## To do:
 <del>Update login/signup form</del>
+
 Image upload 
+
 Fuzzy Search 
