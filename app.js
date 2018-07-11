@@ -8,8 +8,8 @@ var express    = require("express"),
     methodOverride = require("method-override"),
     Place = require("./models/place"),
     Comment    = require("./models/comment"),
-    User       = require("./models/user"),
-    seedDB     = require("./seeds")
+    User       = require("./models/user")
+    //seedDB     = require("./seeds")
     
     
 var commentRoutes     = require("./routes/comments"),
@@ -20,7 +20,9 @@ var commentRoutes     = require("./routes/comments"),
 require('dotenv').config()
     
 // seedDB()
-mongoose.connect("mongodb://localhost/show_estates_v2")
+mongoose.connect("mongodb://olo:pokemon1@ds131971.mlab.com:31971/tvestates")
+
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"))
