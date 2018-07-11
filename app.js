@@ -20,7 +20,7 @@ var commentRoutes     = require("./routes/comments"),
 require('dotenv').config()
     
 // seedDB()
-mongoose.connect("mongodb://olo:pokemon1@ds131971.mlab.com:31971/tvestates")
+mongoose.connect(process.env.DB)
 
 
 app.use(bodyParser.urlencoded({extended: true}));

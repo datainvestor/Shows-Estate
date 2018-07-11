@@ -22,10 +22,10 @@ router.get("/", function(req, res){
 //CREATE - add new campground to DB
 router.post("/", middleware.isLoggedIn, middleware.isSafe, function(req, res){
     // get data from form and add to campgrounds array
-    var name = req.body.name;
-    var price= req.body.price;
-    var image = req.body.image;
-    var desc = req.body.description;
+    var name = req.body.place.name;
+    var price= req.body.place.price;
+    var image = req.body.place.image;
+    var desc = req.body.place.description;
     var author = {
         id: req.user._id,
         username: req.user.username
@@ -104,7 +104,7 @@ router.put("/:id", middleware.checkPlaceOwnership, middleware.isSafe, function(r
     })
 });
 
-// DESTROY CAMPGROUND ROUTE
+// DESTROY CAMPGROUND ROUTE 
 router.delete("/:id", middleware.checkPlaceOwnership, function(req, res){
     Place.findByIdAndRemove(req.params.id, function(err){
         if(err){
