@@ -13,14 +13,12 @@
                 <% if(currentUser && currentUser.isAdmin) {%>
                   <div class="form-group">
                     <input class="form-control" type="text" name="place[image]" id="image" value="<%= place.image %>" required>
-                    <small>Click <a href="https://youtu.be/Bn3weNRQRDE">here</a> for tutorial on how to copy unsplash urls.</small>
                 </div>
                 <% } else {%>
                  <div class="form-group">
-                    <input class="form-control" type="text" name="place[image]" id="image" pattern="^https:\/\/images\.unsplash\.com\/.*" title="Only images from images.unsplash.com allowed. See link below for instructions." placeholder="https://images.unsplash.com/..." value="<%= place.image %>" required>
-                    <small>Click <a href="https://youtu.be/Bn3weNRQRDE">here</a> for tutorial on how to copy unsplash urls.</small>
+                    <input class="form-control" type="text" name="place[image]" id="image" pattern="^https:\/\/m\.media-amazon\.com\/.*" title="Only images from IMDB.com allowed." placeholder="Image address" value="<%= place.image %>" required>
                 </div>
-                <% } %>
+                <% } %> 
                 <div class="form-group">
                     <input class="form-control" type="text" name="place[description]" value="<%= place.description %>">
                 </div>
