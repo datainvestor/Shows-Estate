@@ -9,4 +9,5 @@ Image upload
 
 Fuzzy Search 
 
+## Preview:
 https://pacific-castle-74002.herokuapp.com
